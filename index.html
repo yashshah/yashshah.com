@@ -80,6 +80,7 @@ Your browser does not support the audio element.
 		} else {
 			setTimeout(function () {
 				startHeartAnimation();
+				mixpanel.track("Video play");
 			}, 5000);
 
 			setTimeout(function () {
