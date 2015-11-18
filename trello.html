@@ -1,0 +1,34 @@
+
+<html>
+<head>
+	<title>Webhook Example</title>
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="https://api.trello.com/1/client.js?key=c2f6a06af56e589d09d964391a455240"></script>
+	<script type="text/javascript">
+		var authenticationSuccess = function() { alert("Successful authentication"); };
+		var authenticationFailure = function() { console.log("Failed authentication"); };
+		$(function(){
+			Trello.authorize({
+			  type: "popup",
+			  name: "Test-aa",
+			  scope: {
+			    read: true,
+			    write: true },
+			            success: function () {
+			            	var myList = "56481e7bc3394a1029af33ab";
+							var creationSuccess = function(data) {
+							  console.log("Card created successfully. Data returned:" + JSON.stringify(data));
+							};
+							var newCard = {name: "New Test Card", desc: "This is the description of our new card."};
+							Trello.post("/cards", newCard, creationSuccess, myList);
+			            }
+			});
+			
+			
+		})
+	</script>
+</head>
+<body>
+
+</body>
+</html>
