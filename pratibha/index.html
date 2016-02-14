@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+	<canvas id="graphics" style="position:absolute; top:0; left:0;"></canvas>
+
+</body>
+
+<script>
+	$(document).ready(function() {
+		runIntro();
+	});
+function runIntro() {
+	$("body").css("overflow", "hidden")
+	var canvas = document.getElementById("graphics");
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	var context = canvas.getContext("2d");
+	
+	context.font      = "32px Verdana";
+	context.fillStyle = "#000000";
+	context.textAlign="center";
+		
+	context.fillText("Hey baby :)", canvas.width/2, canvas.height/2);
+	
+	window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("I can't believe we are so similar ;)", canvas.width/2, canvas.height/2);
+	}, 1500);
+	
+	window.setTimeout(function() {
+		var heart = new Image();
+		heart.onload = function() {
+			window.setTimeout(function() {
+				context.drawImage(heart, canvas.width/2-110, canvas.height/2+110);
+			}, 1500);
+		}
+		heart.src = 'content/heart.png';
+	}, 1500);	
+
+	window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("I really wish that I was with you today!", canvas.width/2, canvas.height/2);
+	}, 4500);
+
+	window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("Well, but for us everything started Virtually. So how about a virtual date? ", canvas.width/2, canvas.height/2);
+	}, 7500);
+
+	window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("This is you", canvas.width/2, canvas.height/2);
+	}, 11500);
+	
+	window.setTimeout(function() {
+		var nisha = new Image();
+		nisha.onload = function() {
+			window.setTimeout(function() {
+				context.drawImage(nisha, canvas.width/2+100, canvas.height/2);
+			}, 13000);
+		}
+		nisha.src = 'content/nisha/front.png';
+	}, 0);	
+	
+	window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("This is me", canvas.width/2, canvas.height/2);
+	}, 15500);
+	
+		window.setTimeout(function() {
+		var yash = new Image();
+		yash.onload = function() {
+			window.setTimeout(function() {
+				context.drawImage(yash, canvas.width/2+100, canvas.height/2);
+			}, 16000);
+		}
+		yash.src = 'content/yash/front.png';
+	}, 0);	
+	
+		window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("Are you ready? Nai? Chalo toh tyaar ho jao :P", canvas.width/2, canvas.height/2);
+	}, 19500);
+	
+	window.setTimeout(function() {
+		window.location = 'pratiroom.html'
+	}, 23000);
+}
+</script>
+</html>
